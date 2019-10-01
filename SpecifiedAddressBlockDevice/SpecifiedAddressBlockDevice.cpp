@@ -338,7 +338,7 @@ int SpecifiedAddressBlockDevice::program(const void *buffer,
             bd_addr_t physical_address = _base + virtual_address - VIRTUAL_OFFSET;
 
             /* Write data using the internal flash driver. */
-            result = _flash.program(buffer, physical_address, size);
+            result = _flash.program(buffer, (uint32_t)physical_address, (uint32_t)size);
             if (result == BD_ERROR_OK) {
                 _is_flash_program = true;
             }
@@ -373,9 +373,14 @@ int SpecifiedAddressBlockDevice::erase(bd_addr_t virtual_address,
         } else {
             /* Convert virtual address to the physical address for the device. */
             bd_addr_t physical_address = _base + virtual_address - VIRTUAL_OFFSET;
+            uint32_t sector_size = _flash.get_sector_size(physical_address);
 
             /* Erase sector */
-            result = _flash.erase(physical_address, size);
+            if ((physical_address % sector_size) == 0) {
+                result = _flash.erase((uint32_t)physical_address, sector_size);
+            } else {
+                result = BD_ERROR_OK;
+            }
         }
     }
 

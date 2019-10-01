@@ -16,9 +16,13 @@ mbed-os/features/storage/kvstore/*
 mbed-os/features/storage/nvstore/*
 mbed-os/features/storage/system_storage/*
 mbed-os/features/unsupported/*
+mbed-os/components/802.15.4_RF/*
+mbed-os/components/wifi/*
+mbed-gr-libs/AlarmTimer/*
 mbed-gr-libs/AsciiFont/*
 mbed-gr-libs/bd/*
 mbed-gr-libs/components/*
+mbed-gr-libs/DeepStandby/*
 mbed-gr-libs/DisplayApp/*
 mbed-gr-libs/drp-for-mbed/*
 mbed-gr-libs/EasyAttach_CameraAndLCD/*
@@ -27,7 +31,4 @@ mbed-gr-libs/GraphicsFramework/*
 mbed-gr-libs/GR-PEACH_video/*
 mbed-gr-libs/R_BSP/*
 mbed-gr-libs/SDBlockDevice_GRBoard/*
-mbed-gr-libs/USBDevice/USBAudio/*
-mbed-gr-libs/USBDevice/USBHID/*
-mbed-gr-libs/USBDevice/USBMIDI/*
 mbed-gr-libs/USBHost_custom/*
