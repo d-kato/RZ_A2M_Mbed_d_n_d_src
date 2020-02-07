@@ -1,4 +1,10 @@
 {
+    "config": {
+        "volume-label":{
+            "help": "Volume label string: 11 single-byte characters",
+            "value": "\"MBED       \""
+        }
+    },
     "target_overrides": {
         "*": {
             "platform.stdio-baud-rate": 115200,
@@ -6,6 +12,10 @@
             "target.components": ["FLASHIAP"],
             "target.macros_add": ["MBED_CONF_APP_MAIN_STACK_SIZE=8192"],
             "target.restrict_size": "0x40000"
+        },
+        "GR_MANGO": {
+            "app.volume-label": "\"GR-MANGO   \"",
+            "target.restrict_size": "0x11000"
         }
     }
 }

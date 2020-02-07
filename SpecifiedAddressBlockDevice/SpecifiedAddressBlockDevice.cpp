@@ -188,6 +188,9 @@ int SpecifiedAddressBlockDevice::init()
     }
     memset(_blocks[0x5], 0, BLOCK_SIZE);
     memcpy(_blocks[0x5], fat_tbl_5, sizeof(fat_tbl_5));
+#ifdef MBED_CONF_APP_VOLUME_LABEL
+    memcpy(_blocks[0x5], MBED_CONF_APP_VOLUME_LABEL, 11);  // Volume label
+#endif
 
     _blocks[0x9]  = (uint8_t*)malloc(BLOCK_SIZE);
     if (_blocks[0x9] == 0) {
